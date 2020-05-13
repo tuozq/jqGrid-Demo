@@ -58,7 +58,7 @@ function pageInit(){
 							 editable: true, 
 							 // 自定义输入控件
 							 edittype: 'custom',
-							 editoptions: $grid.customDateEditoptions
+							 editoptions: $grid.customDateEditoptions("{dateFmt:'yyyy-MM-dd HH:mm:ss'}")
 						 }, 
 						 {name : 'name',index : 'name',width : 100, editable : true}, 
 						 {
@@ -82,13 +82,6 @@ function pageInit(){
 					   ],
 			cellEdit: true,
 			cellsubmit: "clientArray",
-			onCellSelect: function(rowid,iCol,cellcontent,e){
-
-			},
-			// 单元格编辑完成后触发
-			afterEditCell: function(rowid, colKey, cellcontent){
-				
-			},
 			footerrow: true,
 			gridComplete: function() {
 				$grid.appentFootRow(['amount']);

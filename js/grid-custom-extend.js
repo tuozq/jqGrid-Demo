@@ -44,18 +44,20 @@
 				this.jqGrid("footerData", "set", footerData);
 			},
 			// 日期输入控件配置
-			customDateEditoptions: {
-				custom_element: function(value, options){
-					var el = $('<input type="text" name="birthday" class="Wdate" onclick="WdatePicker()">');
-					el.val(value);
-					return el;
-				},
-				custom_value: function(elem, operation, value){
-					if (operation === 'get') {   
-						return $(elem).val();   
-					} else if (operation === 'set') {  
-						$(elem).val(value);  
-					}  
+			customDateEditoptions: function(dateOptions){
+				return {
+					custom_element: function(value, options){
+						var el = $('<input type="text" name="birthday" class="Wdate" onclick="WdatePicker('+ (dateOptions||'') +')">');
+						el.val(value);
+						return el;
+					},
+					custom_value: function(elem, operation, value){
+						if (operation === 'get') {   
+							return $(elem).val();   
+						} else if (operation === 'set') {  
+							$(elem).val(value);  
+						}  
+					}
 				}
 			},
 			// 验证数字
