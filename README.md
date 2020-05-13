@@ -1,6 +1,13 @@
 # jqGrid-Demo
 记录jqGrid参数方法事件、基本用法
 
+grid-custom-extend.js 中扩展了一些常用的方法
+endEdit 	结束在编辑状态中的单元格
+setLock		设置某个单元格锁定状态
+appentFootRow 	添加合计行
+customDateEditoptions 	日期输入控件配置，配合  {editable: true, edittype: 'custom',editoptions: $grid.customDateEditoptions} 使用
+numberValidate  	验证输入值是否为数字，配合 {editrules: {custom:true, custom_func:$grid.numberValidate}}使用
+
 ## 表格colModel配置参数详解
 ### formatter 格式化单元格
 
@@ -50,3 +57,18 @@ function selectUnFormatter(cellvalue, options, rowObject){
 	return '';
 }
  ```
+
+
+## 表格方法
+### 合并表头
+```javascript
+// numberOfColumns 要合并的列数量
+// startColumnName 合并的开始列
+// titleText 合并列显示值
+$grid.setGroupHeaders({
+	useColSpanStyle: true,
+	groupHeaders: [
+		{"numberOfColumns": 3, "titleText": "个人信息", "startColumnName": "name"}
+	]
+});
+```
