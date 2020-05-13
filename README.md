@@ -13,9 +13,9 @@ var selectValOfSex = {1: '男', 2: '女'};
 
 // select类型 格式化值为别名，表格显示值
 function selectFormatter(cellvalue, options, rowObject){
-		// 获取列配置的下拉选项值
-		var value = options.colModel.editoptions.value;
-		return value[cellvalue] || '';
+	// 获取列配置的下拉选项值
+	var value = options.colModel.editoptions.value;
+	return value[cellvalue] || '';
 }
 
 {
@@ -40,13 +40,13 @@ var selectValOfSex = {1: '男', 2: '女'};
 
 // select类型 格式化别名为值，grid.jqGrid("getRowData")获取到的值
 function selectUnFormatter(cellvalue, options, rowObject){
-		// 获取列配置的下拉选项值
-		var value = options.colModel.editoptions.value;
-		for(var key in value){
-			if(value[key] == cellvalue){
-				return key;
-			}
+	// 获取列配置的下拉选项值
+	var value = options.colModel.editoptions.value;
+	for(var key in value){
+		if(value[key] == cellvalue){
+			return key;
 		}
-		return '';
+	}
+	return '';
 }
  ```
